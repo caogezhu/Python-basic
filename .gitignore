@@ -1,0 +1,12 @@
+# PyCharm IDE配置
+.idea/
+*.iml
+*.iws
+*.out
+
+# 虚拟环境
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
