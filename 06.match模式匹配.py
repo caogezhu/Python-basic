@@ -19,18 +19,39 @@
 #         print("输入错误！")
 
 # 案例：基于match...case实现一个简易的计算器，可以实现 + - * / 运算，用户输入需要运算的两个数以及运算符之后，就可以进行计算。
-num1 = float(input("请输入第一个数："))
-num2 = float(input("请输入第二个数："))
-oper = input("请输入运算符(+ - * /)：")
+# num1 = float(input("请输入第一个数："))
+# num2 = float(input("请输入第二个数："))
+# oper = input("请输入运算符(+ - * /)：")
+#
+# match oper:
+#     case "+":
+#         print(f"{num1} + {num2} = {num1 + num2}")
+#     case "-":
+#         print(f"{num1} - {num2} = {num1 - num2}")
+#     case "*":
+#         print(f"{num1} * {num2} = {num1 * num2}")
+#     case "/" if num2 != 0:  # if条件成立，才匹配这个case
+#         print(f"{num1} / {num2} = {num1 / num2}")
+#     case _:
+#         print("操作不支持!!!")
 
-match oper:
-    case "+":
-        print(f"{num1} + {num2} = {num1 + num2}")
-    case "-":
-        print(f"{num1} - {num2} = {num1 - num2}")
-    case "*":
-        print(f"{num1} * {num2} = {num1 * num2}")
-    case "/" if num2 != 0:  # if条件成立，才匹配这个case
-        print(f"{num1} / {num2} = {num1 / num2}")
-    case _:
-        print("操作不支持!!!")
+while True:
+    PlayerActions = input("请输入操作：")
+    match PlayerActions:
+        case "上" | "w" | "W":
+            print("角色向上移动")
+        case "下" | "s" | "S":
+            print("角色向下移动")
+        case "左" | "a" | "A":
+            print("角色想左移动")
+        case "右" | "d" | "D":
+            print("角色向右移动")
+        case "跳" | " ":
+            print("角色跳跃")
+        case "攻击" | "j" | "J":
+            print("角色发动攻击")
+        case "退出" | "esc" | "ESC":
+            print("角色退出游戏")
+            break
+        case _:
+            print("无效操作")
