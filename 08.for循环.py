@@ -9,15 +9,30 @@
 
 # 计算1-100奇数和
 
-total = 0
-for i in range(1,101,2):
-    total += i
+# total = 0
+# for i in range(1,101,2):
+#     total += i
+#
+# print(f"1-100奇数和：{i}")
+#
+# # 计算100-500奇数和
+# total = 0
+# for i in range(100,501,2):
+#     total += i
+#
+# print(f"100-500奇数和：{i}")
 
-print(f"1-100奇数和：{i}")
+# 打印长度为10，宽度为5的长方形
 
-# 计算100-500奇数和
-total = 0
-for i in range(100,501,2):
-    total += i
+# print("*") ：自带换行效果，每一次执行都会输出新的一行中；
+# print("*",end=""): end表示的是每一次输出以什么结束；默认 \n, 表示换行
 
-print(f"100-500奇数和：{i}")
+# 1.键盘录入m,n
+m = int(input("请输入长方形的长度："))
+n = int(input("请输入长方形的宽度："))
+
+# 2.打印长方形
+for j in range(n):
+    for i in range(m):
+        print("*",end=" ")
+    print()
