@@ -27,12 +27,37 @@
 # print("*") ：自带换行效果，每一次执行都会输出新的一行中；
 # print("*",end=""): end表示的是每一次输出以什么结束；默认 \n, 表示换行
 
-# 1.键盘录入m,n
-m = int(input("请输入长方形的长度："))
-n = int(input("请输入长方形的宽度："))
+# # 1.键盘录入m,n
+# m = int(input("请输入长方形的长度："))
+# n = int(input("请输入长方形的宽度："))
+#
+# # 2.打印长方形
+# for j in range(n):
+#     for i in range(m):
+#
+#         print("*",end=" ")
+#     print()
 
-# 2.打印长方形
-for j in range(n):
-    for i in range(m):
-        print("*",end=" ")
+# 打印99乘法表
+
+for i in range(1,10):
+    for j in range(1,i+1):
+        print(f"{j} * {i} = {j*i}",end="\t")
     print()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
