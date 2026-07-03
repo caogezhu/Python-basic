@@ -40,12 +40,33 @@
 
 # 打印99乘法表
 
-for i in range(1,10):
-    for j in range(1,i+1):
-        print(f"{j} * {i} = {j*i}",end="\t")
+# for i in range(1,10):
+#     for j in range(1,i+1):
+#         print(f"{j} * {i} = {j*i}",end="\t")
+#     print()
+
+#打印等腰三角形
+
+# for i in range(10):
+#     for j in range(i):
+#         print("*",end=" ")
+#     print()
+
+#打印数字金字塔
+# num = int(input("请输入对应数字："))
+# for i in range(1,num+1):
+#     for j in range(1,i+1):
+#         print(j,end=" ")
+#     print()
+
+#打印国际象棋棋盘
+for i in range(1,9):
+    for j in range(1,9):
+        if j % 2 != 0:
+            print("▪️",end="")
+        else:
+            print("▫️",end="")
     print()
-
-
 
 
 
