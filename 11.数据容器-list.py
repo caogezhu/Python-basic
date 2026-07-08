@@ -44,36 +44,53 @@
 # print(s[0:5:2])
 # print(s[0:-2:1])
 
-# -----------------------列表 list 常用方法 ------------------------------
-# 列表定义
-s = [65,56,648,646,156,75,6,45,96,75,154]
-print(s)
+# # -----------------------列表 list 常用方法 ------------------------------
+# # 列表定义
+# s = [65,56,648,646,156,75,6,45,96,75,154]
+# print(s)
+#
+# # append()：在列表末尾追加元素
+# s.append(100)
+# print(s)
+#
+# # insert()：在指定索引之前，插入元素
+# s.insert(2,80)
+# print(s)
+#
+# # remove()：移除列表中第一个匹配的元素
+# s.remove(75)
+# print(s)
+#
+# # pop()：删除列表中指定索引位置的元素并返回(如果未指定，默认删除最后一个)
+# e = s.pop(1)
+# print(e)
+#
+# e = s.pop()
+# print(e)
+#
+# print(s)
+#
+# # sort()：排序
+# s.sort()
+# print(s)
+#
+# # reverse()：反转列表元素
+# s.reverse()
+# print(s)
 
-# append()：在列表末尾追加元素
-s.append(100)
-print(s)
+# -----------------------列表 list 案例 ------------------------------
+# 1.定义列表
+num_list = []
 
-# insert()：在指定索引之前，插入元素
-s.insert(2,80)
-print(s)
+for i in range(10):
+    num = int(input("请输入一个有效数字："))
+    num_list.append(num)
+print("数字列表：",num_list)
 
-# remove()：移除列表中第一个匹配的元素
-s.remove(75)
-print(s)
+num_list.sort()
+print("排序后的列表为：",num_list)
 
-# pop()：删除列表中指定索引位置的元素并返回(如果未指定，默认删除最后一个)
-e = s.pop(1)
-print(e)
+print("最小值:",num_list[0])
+print("最大值:",num_list[-1])
+print("平均值:",sum(num_list)/len(num_list))
 
-e = s.pop()
-print(e)
-
-print(s)
-
-# sort()：排序
-s.sort()
-print(s)
-
-# reverse()：反转列表元素
-s.reverse()
-print(s)
