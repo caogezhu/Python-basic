@@ -80,17 +80,73 @@
 
 # -----------------------列表 list 案例 ------------------------------
 # 1.定义列表
-num_list = []
+# num_list = []
+#
+# for i in range(10):
+#     num = int(input("请输入一个有效数字："))
+#     num_list.append(num)
+# print("数字列表：",num_list)
+#
+# num_list.sort()
+# print("排序后的列表为：",num_list)
+#
+# print("最小值:",num_list[0])
+# print("最大值:",num_list[-1])
+# print("平均值:",sum(num_list)/len(num_list))
 
-for i in range(10):
-    num = int(input("请输入一个有效数字："))
-    num_list.append(num)
-print("数字列表：",num_list)
 
-num_list.sort()
-print("排序后的列表为：",num_list)
 
-print("最小值:",num_list[0])
-print("最大值:",num_list[-1])
-print("平均值:",sum(num_list)/len(num_list))
+# #案例2：合并两个列表中的元素，并对合并的结果进行去重处理(去除列表中的重复元素)
+# num_list1 = [19, 23, 54, 64, 875, 20, 109, 232, 123, 54]
+# num_list2 = [55, 80, 72, 35, 60, 123, 54, 29, 91]
+#
+# # 1.合并列表
+# for num in num_list2:
+#     num_list1.append(num)
+# print("合并后的列表为：",num_list1)
+#
+# # 2.去除重复元素
+# new_list = []
+#
+# for num in num_list1:
+#     if num not in new_list:
+#         new_list.append(num)
+# print("去除重复元素后的列表为：",new_list)
+
+#案例2(简化)：合并两个列表中的元素，并对合并的结果进行去重处理(去除列表中的重复元素)
+num_list1 = [19, 23, 54, 64, 875, 20, 109, 232, 123, 54]
+num_list2 = [55, 80, 72, 35, 60, 123, 54, 29, 91]
+
+# 1.合并列表
+# 解包：将列表这一类容器解开成一个一个独立的元素
+# 组包：将多个组合并列为一个容器
+# num_list = [*num_list1, *num_list2]
+# 或
+num_list = num_list1 + num_list2
+
+print("合并后的列表为：",num_list)
+
+# 2.去除重复元素
+new_list = []
+
+for num in num_list:
+    if num not in new_list:
+        new_list.append(num)
+print("去除重复元素后的列表为：",new_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
