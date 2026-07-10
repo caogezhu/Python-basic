@@ -150,9 +150,32 @@ from hmac import new
 
 # 案例四：从一个数字列表中提取所有偶数，并计算其平方，组成一个新的列表
 # 列表推导式 ---> 就是按照一定的规则快速生成一个列表的方法 --> 语法格式2：[要插入的值 for i in 序列/列表 if 条件]
-num_list = [15,54,15.8,51814,1515,515,46,158,948]
-new_list = [i**2 for i in num_list if i%2==0]
-print(new_list)
+# num_list = [15,54,15.8,51814,1515,515,46,158,948]
+# new_list = [i**2 for i in num_list if i%2==0]
+# print(new_list)
+
+
+#合并列表后去重并排序
+list1 = ['M', 'A', 'C', 'E', 'F', 'G', 'H', 'L', 'N', 'I', 'J', 'K', 'O']
+list2 = ['X', 'Z', 'T', 'Y', 'D', 'E', 'F', 'G']
+list3 = ['W', 'A', 'S', 'D']
+
+num_list = list1
+for num in list2 + list3:
+    if num not in num_list:
+        num_list.append(num)
+num_list.sort()
+print(num_list)
+
+
+
+
+
+
+
+
+
+
 
 
 
