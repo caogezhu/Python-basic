@@ -160,7 +160,7 @@ list1 = ['M', 'A', 'C', 'E', 'F', 'G', 'H', 'L', 'N', 'I', 'J', 'K', 'O']
 list2 = ['X', 'Z', 'T', 'Y', 'D', 'E', 'F', 'G']
 list3 = ['W', 'A', 'S', 'D']
 
-num_list = list1
+num_list = list1.copy()
 for num in list2 + list3:
     if num not in num_list:
         num_list.append(num)
