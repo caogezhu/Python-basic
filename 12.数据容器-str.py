@@ -22,7 +22,7 @@
 # print(s[::-1])
 
 
-# # ---------------------- 字符串常用方法 ----------------------
+# ---------------------- 字符串常用方法 ----------------------
 # s = "     Hello-Python-Hello-World     "
 #
 # # find() 查找指定字符串第一次出现的索引位置
@@ -75,19 +75,32 @@
 
 # 方法二: in 运算符 --> 判断字串是否在字符串中，存在，返回True，否则false
 # 1.接受用户的编码
-mail = input("请输入邮箱：")
-
-if mail.count("@")==1 and "." in mail:
-    print("邮箱合法！")
-else:
-    print("邮箱非法！")
-
-
+# mail = input("请输入邮箱：")
+#
+# if mail.count("@")==1 and "." in mail:
+#     print("邮箱合法！")
+# else:
+#     print("邮箱非法！")
 
 
+# 输入字符串判断是否回文(两边对称 1234321 上海自来水来自海上)
+# zf = input("请输入字符串：")
+# total = 0
+# for i in range(0,int(len(zf)/2)):
+#     if zf[i] == zf[-(i+1)]:
+#         total+=1
+# if total == int(len(zf)/2):
+#     print("回文")
+# else:
+#     print("不回文")
 
-
-
+# 将输入的10个字符串，反转后全部转换为大写，然后记录在列表中，最后将列表内容遍历输出
+num_list = []
+for i in range(0,3):
+    zf2 = input("请输入字符串：")
+    num_list.append(zf2[::-1].upper())
+for i in range(0,3):
+    print(num_list[i],end=" ")
 
 
 
