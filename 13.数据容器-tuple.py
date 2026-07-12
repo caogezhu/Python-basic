@@ -85,7 +85,7 @@ students = (
      ("S010", "通天", 66, 59, 72)
 )
 # 1. 计算每个学生的总分、各科平均分，然后一并输出出来
-print("学号 \t 姓名\t\t语文\t\t数学 \t\t 英语\t\t总分 \t\t 平均分")
+print("学号 \t 姓名\t\t语文\t\t数学 \t\t 英语\t\t 总分 \t\t 平均分")
 for s in students:
     total = s[2] + s[3] + s[4]
     avg = total / 3
