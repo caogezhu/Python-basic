@@ -91,6 +91,8 @@ for s in students:
     avg = total / 3
     print(f"{s[0]} \t {s[1]} \t\t {s[2]} \t {s[3]} \t\t {s[4]} \t\t {total} \t\t {avg:.1f}")
 
+print()
+
 # 统计各科成绩最高分、最低分、平均分
 # 各科成绩表
 chinese_scores = [s[2]for s in students]
@@ -104,8 +106,9 @@ print(f"数学最高分：{max(math_scores)},最低分：{min(math_scores)},"
 print(f"英语最高分：{max(english_scores)},最低分：{min(english_scores)},"
       f"平均分：{sum(english_scores)/len(english_scores)}")
 
+print()
 # 查找成绩优秀(平均分 > 90)学生并输出
-print("优秀学生名单:")
+print("优秀学生名单：")
 for s in students:
     total = s[2] + s[3] + s[4]
     avg = total / 3
