@@ -86,10 +86,17 @@ students = (
 )
 # 1. 计算每个学生的总分、各科平均分，然后一并输出出来
 print("学号 \t 姓名\t\t语文\t\t数学 \t\t 英语\t\t 总分 \t\t 平均分")
-for s in students:
-    total = s[2] + s[3] + s[4]
+# 方式一：
+# for s in students:
+#     total = s[2] + s[3] + s[4]
+#     avg = total / 3
+#     print(f"{s[0]} \t {s[1]} \t\t {s[2]} \t {s[3]} \t\t {s[4]} \t\t {total} \t\t {avg:.1f}")
+
+# 方式二：
+for id,name,chinese,math,english in students:
+    total = chinese + math + english
     avg = total / 3
-    print(f"{s[0]} \t {s[1]} \t\t {s[2]} \t {s[3]} \t\t {s[4]} \t\t {total} \t\t {avg:.1f}")
+    print(f"{id} \t {name} \t\t {chinese} \t {math} \t\t {english} \t\t {total} \t\t {avg:.1f}")
 
 print()
 
@@ -109,11 +116,19 @@ print(f"英语最高分：{max(english_scores)},最低分：{min(english_scores)
 print()
 # 查找成绩优秀(平均分 > 90)学生并输出
 print("优秀学生名单：")
-for s in students:
-    total = s[2] + s[3] + s[4]
+# 方式一：
+# for s in students:
+#     total = s[2] + s[3] + s[4]
+#     avg = total / 3
+#     if avg > 90:
+#         print(f"优秀学生学号：{s[0]},姓名：{s[1]},平均分：{avg:.1f}")
+
+# 方式二：
+for id,name,chinese,math,english in students:
+    total = chinese + math + english
     avg = total / 3
     if avg > 90:
-        print(f"优秀学生学号：{s[0]},姓名：{s[1]},平均分：{avg:.1f}")
+        print(f"优秀学生学号：{id},姓名：{name},平均分：{avg:.1f}")
 
 
 
