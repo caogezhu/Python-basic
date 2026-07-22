@@ -37,10 +37,12 @@ print(dict1.values()) #获取所有value
 print(dict1.items()) #获取所有键值对
 
 # 删除
+# 方式一：
 num = dict1.pop("崩坏·因缘精灵")
 print(num)
 print(dict1)
 
+# 方式二：
 del dict1["绝区零"]
 print(dict1)
 
