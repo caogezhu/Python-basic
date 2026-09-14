@@ -22,27 +22,57 @@
 # print(calc(10, 2, multiply ))
 
 
-# 匿名函数
-# 需求1：打印一个分割线
-# def out_line():
-#     print("----------------------------")
+# # 匿名函数
+# # 需求1：打印一个分割线
+# # def out_line():
+# #     print("----------------------------")
+#
+# out_line = lambda : print("----------------------------")
+# out_line()
+#
+# # 需求2：计算两个数之和
+# # def add(a,b):
+# #     return a+b
+#
+# add = lambda a,b: a+b
+# print(add(100,200))
+#
+# # 需求3：完成下列列表的排序操作，按照每一个元素的字符个数，从小到大排序；
+# data_list = ["C++", "C", "Python", "Jack", "PHP", "Java", "Go", "JavaScript", "Rust"]
+# print(data_list)
+#
+# data_list.sort(key=lambda item: len(item))
+# print(data_list)
 
-out_line = lambda : print("----------------------------")
-out_line()
 
-# 需求2：计算两个数之和
-# def add(a,b):
-#     return a+b
+# ----------------------------- 案例 -----------------------------------
+# 案例1：计算n的阶乘
+# 递归调用(先层层递进，再逐层回归)：指的是在函数中自己调用自己的情况 ----> 一定得有终结点
+"""
+jc(10) = 10 * jc(9)                           |    ,`
+jc(9) = 9 * jc(8)                             |    |
+jc(8) = 8 * jc(7)                             |    |
+jc(7) = 7 * jc(6) = 7 * 720 = 5040           `,    |
+jc(6) = 6 * jc(5) = 6 * 120 = 720
+jc(5) = 5 * jc(4) = 5 * 24 = 120
+jc(4) = 4 * jc(3) = 4 * 6 = 24
+jc(3) = 3 * jc(2) = 3 * 2 = 6
+jc(2) = 2 * jc(1) = 2 * 1 = 2
+jc(1) = 1
+"""
+def jc(n):
+    if n == 1:
+        return 1
+    else:
+        return n * jc(n - 1)
+print(jc(10))
 
-add = lambda a,b: a+b
-print(add(100,200))
 
-# 需求3：完成下列列表的排序操作，按照每一个元素的字符个数，从小到大排序；
-data_list = ["C++", "C", "Python", "Jack", "PHP", "Java", "Go", "JavaScript", "Rust"]
-print(data_list)
 
-data_list.sort(key=lambda item: len(item))
-print(data_list)
+
+
+
+
 
 
 
