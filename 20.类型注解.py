@@ -22,3 +22,40 @@ names2: list[str] = ["A", "C", "E"]
 phones2: set[str] = {"13309091111", "15209101902", "18809019201"}
 options2: dict[str, int] = {"count":2 , "total":10}
 goods2: tuple[str, int, int] = ("手机", 6999, 1)
+
+
+# 函数类型注解
+def circle_area_len(r:float) -> tuple[float,float]:
+    return round(3.14 * r * r, 1), round(2 * 3.14 * r, 1)
+
+
+a1 = circle_area_len(10)
+print(a1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
