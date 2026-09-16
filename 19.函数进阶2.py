@@ -74,7 +74,7 @@ jc(1) = 1
 1. 优惠券需要商品金额满5000才可以使用，且优惠券金额不能超过商品总价。
 2. 积分抵扣需要商品总金额满5000才可以使用，100积分抵扣1元（且抵扣金额不能超过商品总价，积分只能整百抵扣）。
 """
-def calc_order_cost(*args, coupon=0, score=0, express=0):
+def calc_order_cost(*args:tuple[str,float,int], coupon:int=0, score:int=0, express:float=0) -> float:
     """
     根据传入的一批商品信息（商品名、价格、数量）、优惠（优惠券、积分抵扣）、运费信息计算订单的总金额
     :param args: 商品信息（商品名、价格、数量） ---> 如：("鼠标", 188, 2) ("键盘", 388, 1)
