@@ -68,13 +68,57 @@
 # total = c1.total_price(0.9, 0.1)
 # print("提车的总费用为：", total)
 
+# class Car:
+#     def __init__(self, c_color, c_brand, c_name, c_price):
+#         self.color = c_color
+#         self.brand = c_brand
+#         self.name = c_name
+#         self.price = c_price
+#         print("Car 类型的对象初始化完毕，对象属性已经添加完毕 .")
+#
+#     def running(self):
+#         print(f"{self.brand} {self.name} 正在高速行驶中....")
+#
+#     def total_cost(self, discount, rate=0.1):
+#         total_cost = self.price * discount + rate * self.price
+#         return total_cost
+#
+#     # 魔法方法
+#     def __str__(self):
+#         return f"{self.color} {self.brand} {self.name} {self.price} {self.total_cost}"
+#
+#     def __eq__(self, other):
+#         return self.color == other.color and self.brand == other.brand
+#
+#     def __lt__(self, other):
+#         return self.price < other.price
+#
+#
+# # 测试
+# c1 = Car(c_color="白色", c_brand="BYD", c_name="汉", c_price=180000)
+# print(c1)
+#
+# c2 = Car(c_color="白色", c_brand="BYD", c_name="汉", c_price=180000)
+# print(c2)
+#
+# print(c1 == c2)
+#
+# print(c1 < c2)
+#
+# print(type(c1.total_cost(0.9)))
+
+
+# ------------------------------ 实例属性 与 类属性 ---------------------------------
 class Car:
+    # 类属性 (所有实例对象共享的)
+    wheel = 4
+    tax_rate = 0.1
     def __init__(self, c_color, c_brand, c_name, c_price):
         self.color = c_color
         self.brand = c_brand
         self.name = c_name
         self.price = c_price
-        print("Car 类型的对象初始化完毕，对象属性已经添加完毕 .")
+        self.wheel = 2
 
     def running(self):
         print(f"{self.brand} {self.name} 正在高速行驶中....")
@@ -83,31 +127,17 @@ class Car:
         total_cost = self.price * discount + rate * self.price
         return total_cost
 
-    # 魔法方法
-    def __str__(self):
-        return f"{self.color} {self.brand} {self.name} {self.price} {self.total_cost}"
-
-    def __eq__(self, other):
-        return self.color == other.color and self.brand == other.brand
-
-    def __lt__(self, other):
-        return self.price < other.price
-
 
 # 测试
 c1 = Car(c_color="白色", c_brand="BYD", c_name="汉", c_price=180000)
-print(c1)
+print(c1.brand)
+print(c1.wheel) # 通过实例对象，查找属性时，会先查找实例属性； 实例属性不存在，再查找类属性
 
-c2 = Car(c_color="白色", c_brand="BYD", c_name="汉", c_price=180000)
-print(c2)
+# 通过类名访问类属性
+print(Car.wheel)
 
-print(c1 == c2)
-
-print(c1 < c2)
-
-print(type(c1.total_cost(0.9)))
-
-
+# c2 = Car(c_color="黑色", c_brand="Tesla", c_name="Model Y", c_price=260000)
+# print(c2)
 
 
 
