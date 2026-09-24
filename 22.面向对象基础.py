@@ -136,8 +136,8 @@ print(c1.wheel) # 通过实例对象，查找属性时，会先查找实例属�
 # 通过类名访问类属性
 print(Car.wheel)
 
-# c2 = Car(c_color="黑色", c_brand="Tesla", c_name="Model Y", c_price=260000)
-# print(c2)
+c2 = Car(c_color="黑色", c_brand="Tesla", c_name="Model Y", c_price=260000)
+print(c2)
 
 
 
