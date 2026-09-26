@@ -34,13 +34,58 @@ class Student:
     def __str__(self):
         return f"姓名：{self.name} | 语文：{self.chinese} | 数学：{self.math} | 英语：{self.english} | 总分：{self.chinese + self.math + self.english}"
 
-# 测试
-if __name__ == "__main__":
-    s1 = Student("银狼lv999",999,999,999)
-    print(s1)
+# 教务管理系统类
+class EduManagement:
+    system_version = "1.0"
+    system_name = "教务管理系统"
 
-    s1.update_score(math=1000)
-    print(s1)
+    def __init__(self):
+        self.Student_list = [] # 列表，记录学生成绩
+
+    # 添加学生成绩
+    def add_student(self):
+        name = input("请输入学生姓名：")
+
+        for s in self.Student_list:
+            if s.name == name:
+                print("该学生已存在，添加失败！")
+                return
+
+        chinese = int(input("请输入学生语文成绩："))
+        math = int(input("请输入学生数学成绩："))
+        english = int(input("请输入学生英语成绩："))
+
+        if 0<= chinese <= 100 and 0<= math <= 100 and 0<= english <= 100:
+            self.Student_list.append(Student(name,chinese,math,english))
+            print("学生信息添加成功！")
+        else:
+            print("各科成绩需在0~100之间！")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # 测试
+# if __name__ == "__main__":
+#     s1 = Student("银狼lv999",999,999,999)
+#     print(s1)
+#
+#     s1.update_score(math=1000)
+#     print(s1)
 
 
 
