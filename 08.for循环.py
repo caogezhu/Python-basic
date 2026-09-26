@@ -69,6 +69,14 @@ for i in range(1,9):
     print()
 
 
+num1 = 1
+num2 = 1
+for i in range(366):
+    num1 *= 1.0005
+print(num1)
+for i in range(366):
+    num2 = num2 * 0.99
+print(num2)
 
 
 
