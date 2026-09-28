@@ -106,7 +106,34 @@ class EduManagement:
         for s in self.Student_list:
             print(s)
 
+    # 运行系统
+    def run(self):
+        print(f"欢迎使用教务管理系统 V{EduManagement.system_version}")
 
+        while True:
+            print()
+            print("################################################")
+            print("# 1.添加学生  2.修改学生  3.删除学生  4.查询指定学生  5.查询所有学生  6.退出系统  #")
+            print("################################################")
+            print()
+
+            choice = input("请选择要执行的操作，输入1-6：")
+            match choice:
+                case "1":  # 添加学生
+                    self.add_student()
+                case "2":  # 修改学生
+                    self.update_student()
+                case "3":  # 删除学生
+                    self.delete_student()
+                case "4":  # 查询指定学生
+                    self.query_student()
+                case "5":  # 查询所有学生
+                    self.list_student()
+                case "6":
+                    print("退出")
+                    break
+                case _: # 其他情况
+                    print("输入错误！请输入1-6之间的菜单功能！")
 
 
 
