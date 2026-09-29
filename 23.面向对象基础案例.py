@@ -142,12 +142,9 @@ class EduManagement:
 
 
 # # 测试
-# if __name__ == "__main__":
-#     s1 = Student("银狼lv999",999,999,999)
-#     print(s1)
-#
-#     s1.update_score(math=1000)
-#     print(s1)
+if __name__ == "__main__":
+    edu_management = EduManagement()
+    edu_management.run()
 
 
 
