@@ -15,120 +15,253 @@
         4.1 输出格式为："姓名：张三 | 语文：85 | 数学：90 | 英语：88 | 总分：263"
     5. 展示全部学生成绩：展示出系统中所有学生的成绩
 """
-# class Student:
-#     def __init__(self,name,chinese,math,english):
+class Student:
+    def __init__(self,name,chinese,math,english):
+        self.name = name
+        self.chinese = chinese
+        self.math = math
+        self.english = english
+
+    # 修改学生的成绩
+    def update_score(self,chinese=None,math=None,english=None):
+        if chinese is not None:
+            self.chinese = chinese
+        if math is not None:
+            self.math = math
+        if english is not None:
+            self.english = english
+
+    def __str__(self):
+        return f"姓名：{self.name} | 语文：{self.chinese} | 数学：{self.math} | 英语：{self.english} | 总分：{self.chinese + self.math + self.english}"
+
+# 教务管理系统类
+class EduManagement:
+    system_version = "1.0"
+    system_name = "教务管理系统"
+
+    def __init__(self):
+        self.Student_list = [] # 列表，记录学生成绩
+
+    # 添加学生成绩
+    def add_student(self):
+        name = input("请输入学生姓名：")
+
+        for s in self.Student_list:
+            if s.name == name:
+                print("该学生已存在，添加失败！")
+                return
+
+        chinese = int(input("请输入学生语文成绩："))
+        math = int(input("请输入学生数学成绩："))
+        english = int(input("请输入学生英语成绩："))
+
+        if 0<= chinese <= 100 and 0<= math <= 100 and 0<= english <= 100:
+            self.Student_list.append(Student(name,chinese,math,english))
+            print("学生信息添加成功！")
+        else:
+            print("各科成绩需在0~100之间！")
+
+    # 修改学生成绩
+    def update_student(self):
+        name = input("请输入要修改的学生姓名：")
+
+        for s in self.Student_list:
+            if s.name == name:
+                chinese = int(input("请输入修改后的语文成绩："))
+                math = int(input("请输入修改后的数学成绩："))
+                english = int(input("请输入修改后的英语成绩："))
+
+                if 0 <= chinese <= 100 and 0 <= math <= 100 and 0 <= english <= 100:
+                    s.update_score(chinese,math,english)
+                    print("学生信息修改成功！")
+                    return
+                else:
+                    print("各科成绩需在0~100之间！")
+                    return
+        print("未找到该学生，修改失败！")
+
+    # 删除学生成绩
+    def delete_student(self):
+        name = input("请输入要删除的学生姓名：")
+
+        for s in self.Student_list:
+            if s.name == name:
+                self.Student_list.remove(s)
+                print("学生信息删除成功！")
+                return
+        print("未找到该学生，删除失败！")
+
+    # 查询指定学生成绩
+    def query_student(self):
+        name = input("请输入要查询的学生姓名：")
+
+        for s in self.Student_list:
+            if s.name == name:
+                print(f"学生信息：{s}")
+                return
+        print("未找到该学生！")
+
+    # 展示全部学生信息
+    def list_student(self):
+        for s in self.Student_list:
+            print(s)
+
+    # 运行系统
+    def run(self):
+        print(f"欢迎使用教务管理系统 V{EduManagement.system_version}")
+
+        while True:
+            print()
+            print("################################################")
+            print("# 1.添加学生  2.修改学生  3.删除学生  4.查询指定学生  5.查询所有学生  6.退出系统  #")
+            print("################################################")
+            print()
+
+            choice = input("请选择要执行的操作，输入1-6：")
+            try:
+                match choice:
+                    case "1":  # 添加学生
+                        self.add_student()
+                    case "2":  # 修改学生
+                        self.update_student()
+                    case "3":  # 删除学生
+                        self.delete_student()
+                    case "4":  # 查询指定学生
+                        self.query_student()
+                    case "5":  # 查询所有学生
+                        self.list_student()
+                    case "6":
+                        print("退出")
+                        break
+                    case _: # 其他情况
+                        print("输入错误！请输入1-6之间的菜单功能！")
+            except ValueError:
+                print("输入的数据有异常，请重新输入！")
+            except Exception:
+                print("程序运行出错了，请重新选择！")
+
+
+
+
+
+
+
+# # 测试
+if __name__ == "__main__":
+    edu_management = EduManagement()
+    edu_management.run()
+
+
+# # 商品类
+# class Goods:
+#     def __init__(self,name,price,num):
 #         self.name = name
-#         self.chinese = chinese
-#         self.math = math
-#         self.english = english
+#         self.price = price
+#         self.num = num
 #
-#     # 修改学生的成绩
-#     def update_score(self,chinese=None,math=None,english=None):
-#         if chinese is not None:
-#             self.chinese = chinese
-#         if math is not None:
-#             self.math = math
-#         if english is not None:
-#             self.english = english
+#     # 修改商品的价格
+#     def update_price(self,price=None,num=None):
+#         if price is not None:
+#             self.price = price
+#         if num is not None:
+#             self.num = num
 #
 #     def __str__(self):
-#         return f"姓名：{self.name} | 语文：{self.chinese} | 数学：{self.math} | 英语：{self.english} | 总分：{self.chinese + self.math + self.english}"
+#         return f"商品名称：{self.name},商品价格：{self.price},商品数量：{self.num}"
 #
-# # 教务管理系统类
-# class EduManagement:
+# # 购物车系统类
+# class ShoppingCart:
 #     system_version = "1.0"
-#     system_name = "教务管理系统"
+#     system_name = "购物车系统"
 #
 #     def __init__(self):
-#         self.Student_list = [] # 列表，记录学生成绩
+#         self.Goods_list = [] # 列表，记录商品信息
 #
-#     # 添加学生成绩
-#     def add_student(self):
-#         name = input("请输入学生姓名：")
+#     # 添加商品成绩
+#     def add_goods(self):
+#         name = input("请输入商品姓名：")
 #
-#         for s in self.Student_list:
+#         for s in self.Goods_list:
 #             if s.name == name:
-#                 print("该学生已存在，添加失败！")
+#                 print("该商品已存在，添加失败！")
 #                 return
 #
-#         chinese = int(input("请输入学生语文成绩："))
-#         math = int(input("请输入学生数学成绩："))
-#         english = int(input("请输入学生英语成绩："))
+#         price = int(input("请输入商品价格："))
+#         num = int(input("请输入商品数量："))
 #
-#         if 0<= chinese <= 100 and 0<= math <= 100 and 0<= english <= 100:
-#             self.Student_list.append(Student(name,chinese,math,english))
-#             print("学生信息添加成功！")
+#         if  price >= 0 and  num >= 0:
+#             self.Goods_list.append(Goods(name,price,num))
+#             print("商品信息添加成功！")
 #         else:
-#             print("各科成绩需在0~100之间！")
+#             print("商品信息需大于0！")
 #
-#     # 修改学生成绩
-#     def update_student(self):
-#         name = input("请输入要修改的学生姓名：")
+#     # 修改商品成绩
+#     def update_goods(self):
+#         name = input("请输入要修改的商品名称：")
 #
-#         for s in self.Student_list:
+#         for s in self.Goods_list:
 #             if s.name == name:
-#                 chinese = int(input("请输入修改后的语文成绩："))
-#                 math = int(input("请输入修改后的数学成绩："))
-#                 english = int(input("请输入修改后的英语成绩："))
+#                 price = int(input("请输入修改后的商品价格："))
+#                 num = int(input("请输入修改后的商品数量："))
 #
-#                 if 0 <= chinese <= 100 and 0 <= math <= 100 and 0 <= english <= 100:
-#                     s.update_score(chinese,math,english)
-#                     print("学生信息修改成功！")
+#                 if price >= 0 and num >= 0:
+#                     s.update_price(price,num)
+#                     print("商品信息修改成功！")
 #                     return
 #                 else:
-#                     print("各科成绩需在0~100之间！")
+#                     print("商品信息需大于0！")
 #                     return
-#         print("未找到该学生，修改失败！")
+#         print("未找到该商品，修改失败！")
 #
-#     # 删除学生成绩
-#     def delete_student(self):
-#         name = input("请输入要删除的学生姓名：")
+#     # 删除商品成绩
+#     def delete_goods(self):
+#         name = input("请输入要删除的商品名称：")
 #
-#         for s in self.Student_list:
+#         for s in self.Goods_list:
 #             if s.name == name:
-#                 self.Student_list.remove(s)
-#                 print("学生信息删除成功！")
+#                 self.Goods_list.remove(s)
+#                 print("商品信息删除成功！")
 #                 return
-#         print("未找到该学生，删除失败！")
+#         print("未找到该商品，删除失败！")
 #
-#     # 查询指定学生成绩
-#     def query_student(self):
-#         name = input("请输入要查询的学生姓名：")
+#     # 查询指定商品信息
+#     def query_goods(self):
+#         name = input("请输入要查询的商品名称：")
 #
-#         for s in self.Student_list:
+#         for s in self.Goods_list:
 #             if s.name == name:
-#                 print(f"学生信息：{s}")
+#                 print(f"商品信息：{s}")
 #                 return
-#         print("未找到该学生！")
+#         print("未找到该商品！")
 #
 #     # 展示全部学生信息
-#     def list_student(self):
-#         for s in self.Student_list:
+#     def list_goods(self):
+#         for s in self.Goods_list:
 #             print(s)
 #
 #     # 运行系统
 #     def run(self):
-#         print(f"欢迎使用教务管理系统 V{EduManagement.system_version}")
+#         print(f"欢迎使用购物车系统 V{ShoppingCart.system_version}")
 #
 #         while True:
 #             print()
 #             print("################################################")
-#             print("# 1.添加学生  2.修改学生  3.删除学生  4.查询指定学生  5.查询所有学生  6.退出系统  #")
+#             print("# 1.添加商品  2.修改商品  3.删除商品  4.查询指定商品  5.查询所有商品  6.退出系统  #")
 #             print("################################################")
 #             print()
 #
 #             choice = input("请选择要执行的操作，输入1-6：")
 #             match choice:
-#                 case "1":  # 添加学生
-#                     self.add_student()
-#                 case "2":  # 修改学生
-#                     self.update_student()
-#                 case "3":  # 删除学生
-#                     self.delete_student()
-#                 case "4":  # 查询指定学生
-#                     self.query_student()
-#                 case "5":  # 查询所有学生
-#                     self.list_student()
+#                 case "1":  # 添加商品
+#                     self.add_goods()
+#                 case "2":  # 修改商品
+#                     self.update_goods()
+#                 case "3":  # 删除商品
+#                     self.delete_goods()
+#                 case "4":  # 查询指定商品
+#                     self.query_goods()
+#                 case "5":  # 查询所有商品
+#                     self.list_goods()
 #                 case "6":
 #                     print("退出")
 #                     break
@@ -143,136 +276,8 @@
 #
 # # # 测试
 # if __name__ == "__main__":
-#     edu_management = EduManagement()
-#     edu_management.run()
-
-
-# 商品类
-class Goods:
-    def __init__(self,name,price,num):
-        self.name = name
-        self.price = price
-        self.num = num
-
-    # 修改商品的价格
-    def update_price(self,price=None,num=None):
-        if price is not None:
-            self.price = price
-        if num is not None:
-            self.num = num
-
-    def __str__(self):
-        return f"商品名称：{self.name},商品价格：{self.price},商品数量：{self.num}"
-
-# 购物车系统类
-class ShoppingCart:
-    system_version = "1.0"
-    system_name = "购物车系统"
-
-    def __init__(self):
-        self.Goods_list = [] # 列表，记录商品信息
-
-    # 添加商品成绩
-    def add_goods(self):
-        name = input("请输入商品姓名：")
-
-        for s in self.Goods_list:
-            if s.name == name:
-                print("该商品已存在，添加失败！")
-                return
-
-        price = int(input("请输入商品价格："))
-        num = int(input("请输入商品数量："))
-
-        if  price >= 0 and  num >= 0:
-            self.Goods_list.append(Goods(name,price,num))
-            print("商品信息添加成功！")
-        else:
-            print("商品信息需大于0！")
-
-    # 修改商品成绩
-    def update_goods(self):
-        name = input("请输入要修改的商品名称：")
-
-        for s in self.Goods_list:
-            if s.name == name:
-                price = int(input("请输入修改后的商品价格："))
-                num = int(input("请输入修改后的商品数量："))
-
-                if price >= 0 and num >= 0:
-                    s.update_price(price,num)
-                    print("商品信息修改成功！")
-                    return
-                else:
-                    print("商品信息需大于0！")
-                    return
-        print("未找到该商品，修改失败！")
-
-    # 删除商品成绩
-    def delete_goods(self):
-        name = input("请输入要删除的商品名称：")
-
-        for s in self.Goods_list:
-            if s.name == name:
-                self.Goods_list.remove(s)
-                print("商品信息删除成功！")
-                return
-        print("未找到该商品，删除失败！")
-
-    # 查询指定商品信息
-    def query_goods(self):
-        name = input("请输入要查询的商品名称：")
-
-        for s in self.Goods_list:
-            if s.name == name:
-                print(f"商品信息：{s}")
-                return
-        print("未找到该商品！")
-
-    # 展示全部学生信息
-    def list_goods(self):
-        for s in self.Goods_list:
-            print(s)
-
-    # 运行系统
-    def run(self):
-        print(f"欢迎使用购物车系统 V{ShoppingCart.system_version}")
-
-        while True:
-            print()
-            print("################################################")
-            print("# 1.添加商品  2.修改商品  3.删除商品  4.查询指定商品  5.查询所有商品  6.退出系统  #")
-            print("################################################")
-            print()
-
-            choice = input("请选择要执行的操作，输入1-6：")
-            match choice:
-                case "1":  # 添加商品
-                    self.add_goods()
-                case "2":  # 修改商品
-                    self.update_goods()
-                case "3":  # 删除商品
-                    self.delete_goods()
-                case "4":  # 查询指定商品
-                    self.query_goods()
-                case "5":  # 查询所有商品
-                    self.list_goods()
-                case "6":
-                    print("退出")
-                    break
-                case _: # 其他情况
-                    print("输入错误！请输入1-6之间的菜单功能！")
-
-
-
-
-
-
-
-# # 测试
-if __name__ == "__main__":
-    shoppingCart = ShoppingCart()
-    shoppingCart.run()
+#     shoppingCart = ShoppingCart()
+#     shoppingCart.run()
 
 
 
